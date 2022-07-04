@@ -14,7 +14,7 @@ export default function Api() {
 
         return (
 
-            axios.get("https://randomuser.me/api/?results=20").then((res) => {
+            axios.get("https://randomuser.me/api/?results=21").then((res) => {
                 setuserData(res.data.results);
                 console.log(userData);
             })
@@ -28,14 +28,19 @@ export default function Api() {
 
     return (
         <div>
-            {userData.map((user) => (
+            <h1 style={{ textAlign: 'center' }}>Random User Generator</h1>
+            <div className='container'>
+                {userData.map((user) => (
 
-                <Card
-                    name={user.name.first}
-                    address={user.location.country}
-                    source={user.picture.large}
-                />
-            ))}
+
+                    <Card
+                        name={user.name.first}
+                        address={user.location.country}
+                        source={user.picture.large}
+                    />
+
+                ))}
+            </div>
         </div>
     )
 }
